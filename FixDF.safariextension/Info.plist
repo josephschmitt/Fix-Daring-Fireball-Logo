@@ -30,7 +30,7 @@
 		</dict>
 	</dict>
 	<key>Description</key>
-	<string>Fix DaringFireball.net's logo during Yankees season.</string>
+	<string>Fixes DaringFireball.net's logo during Yankees post-season.</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
