@@ -1,0 +1,22 @@
+{
+	"name": "Fix Daring Fireball Logo",
+	"version": "1.0",
+	"description": "Fixes DaringFireball.net's logo during Yankees post-season. Adds options for all of the MLB division series teams.",
+	"browser_action": {
+		"default_icon": "Icon-48.png",
+		"default_title": "Fix Daring Fireball Logo",
+		"default_popup": "popup.html"
+	},
+	"permissions": [
+	  "tabs", "http://daringfireball.net/*"
+	],
+	"background_page": "background.html",
+	"content_scripts": [{
+		"matches": ["http://daringfireball.net/*"],
+		"js": ["fixdf.js"],
+		"run_at": "document_end"
+	}],
+	"icons": {
+		"48": "Icon-48.png"
+	}
+}

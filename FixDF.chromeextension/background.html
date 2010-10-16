@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script>
+            //Handle requests from the content script
+            chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+                sendResponse(getDFLogo());
+            });
+            
+            function getDFLogo() {
+                return window.localStorage.getItem('dfLogo') || 0;
+            }
+            
+            function setDFLogo(altlogo) {
+                window.localStorage.setItem('dfLogo', altlogo);
+            }
+        </script>
+    </body>
+</html>

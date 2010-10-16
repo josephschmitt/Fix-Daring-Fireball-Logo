@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Joseph Schmitt</string>
+	<key>CFBundleDisplayName</key>
+	<string>Fix Daring Fireball Logo</string>
+	<key>CFBundleIdentifier</key>
+	<string>me.josephschmitt.net.fixdf</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict/>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>fixdf.js</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>Fix DaringFireball.net's logo during Yankees season.</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Allowed Domains</key>
+			<array>
+				<string>daringfireball.net</string>
+			</array>
+			<key>Level</key>
+			<string>Some</string>
+		</dict>
+	</dict>
+	<key>Update Manifest URL</key>
+	<string>http://josephschmitt.net/fixdf.plist</string>
+	<key>Website</key>
+	<string>http://josephschmitt.me</string>
+</dict>
+</plist>

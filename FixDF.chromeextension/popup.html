@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Popup</title>
+        <style>
+            form {
+                font-family: "Helvetica", "Arial";
+                font-size: 12px;
+            }
+            form label {
+                margin-top: 0.3em;
+                display: block;
+            }
+            form label:first-child {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="fixdf_options_form" name="fixdf_options_form" style="width:115px;">
+            <label><input type="radio" name="fixdf_options" checked="true" value="0" />Normal Logo</label>
+            <label><input type="radio" name="fixdf_options" value="1" />Phillies Logo</label>
+            <label><input type="radio" name="fixdf_options" value="2" />Giants Logo</label>
+            <label><input type="radio" name="fixdf_options" value="3" />Rangers Logo</label>
+        </form>
+        
+        <script>
+            (function(){
+                var bgPage = chrome.extension.getBackgroundPage(),
+                    form = document.fixdf_options_form,
+                    options = form.fixdf_options,
+                    altlogo = bgPage.getDFLogo();
+                
+                //Update form to display saved state
+                options[parseInt(altlogo)].checked = true;
+                
+                //Handles changes to form options
+                form.addEventListener('change', function(e) {
+                    altlogo = getCurrentSelection();
+                    bgPage.setDFLogo(altlogo);
+                    
+                    //Update the logo
+                    chrome.tabs.getSelected(null, function(tab) {
+                        chrome.tabs.sendRequest(tab.id, altlogo);
+                    });
+                });
+                
+                //Gets the index of the currently selected option
+                function getCurrentSelection() {
+                    var altlogo;
+                    for (var i=0, length = options.length; i<length; i++) {
+                        if (options[i].checked) {
+                            altlogo = i;
+                            break;
+                        }
+                    }
+                    return altlogo;
+                }
+            })();
+        </script>
+    </body>
+</html>
