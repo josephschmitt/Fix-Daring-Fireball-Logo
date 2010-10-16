@@ -6,7 +6,7 @@
         image = altlogo + '.png';
     
         if (!banner) {return false;}
-        banner.setAttribute('src', safari.extension.baseURI+image);
+        banner.setAttribute('src', safari.extension.baseURI+'images/'+image);
     }
     
     //Get the current value from the background page on startup

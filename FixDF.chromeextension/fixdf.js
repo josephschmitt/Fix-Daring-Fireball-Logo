@@ -6,7 +6,7 @@
         image = altlogo + '.png';
     
         if (!banner) {return false;}
-        banner.setAttribute('src', chrome.extension.getURL(image));
+        banner.setAttribute('src', chrome.extension.getURL('images/'+image));
     }
     
     //Get the current value from the background page on startup
