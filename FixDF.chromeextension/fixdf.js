@@ -1,10 +1,9 @@
 (function(){
     var image,
-        banner = document.querySelector('#Banner a img'),
-        logos = ['', '_phils', '_giants', '_rangers'];
+        banner = document.querySelector('#Banner a img');
     
     function doUpdateLogo(altlogo) {
-        image = 'dflogo'+logos[altlogo]+'.png';
+        image = altlogo + '.png';
     
         if (!banner) {return false;}
         banner.setAttribute('src', chrome.extension.getURL(image));

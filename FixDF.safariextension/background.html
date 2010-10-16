@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script>
+            var target;
+            
+            //Handle requests from the content script
+            safari.application.addEventListener("message",function(e) {
+                target = e.target;
+                target.page.dispatchMessage("altlogo", getDFLogo());
+            },false);
+            
+            function getDFLogo() {
+                return safari.extension.settings.logotype;
+            }
+            
+            //Handles changes to form options
+            safari.extension.settings.addEventListener("change", function(e) {
+                target.page.dispatchMessage("altlogo", e.newValue);
+            }, false);
+        </script>
+    </body>
+</html>

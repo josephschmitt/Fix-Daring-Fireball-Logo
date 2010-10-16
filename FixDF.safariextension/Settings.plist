@@ -4,15 +4,27 @@
 <array>
 	<dict>
 		<key>DefaultValue</key>
-		<false/>
+		<string>dflogo</string>
 		<key>Key</key>
-		<string>altlogo</string>
-		<key>Secure</key>
-		<false/>
+		<string>logotype</string>
 		<key>Title</key>
-		<string>Alternate logo</string>
+		<string>Logo Type</string>
+		<key>Titles</key>
+		<array>
+			<string>Normal Logo</string>
+			<string>Phillies Logo</string>
+			<string>Giants Logo</string>
+			<string>Rangers Logo</string>
+		</array>
 		<key>Type</key>
-		<string>CheckBox</string>
+		<string>RadioButtons</string>
+		<key>Values</key>
+		<array>
+			<string>dflogo</string>
+			<string>dflogo_phils</string>
+			<string>dflogo_giants</string>
+			<string>dflogo_rangers</string>
+		</array>
 	</dict>
 </array>
 </plist>

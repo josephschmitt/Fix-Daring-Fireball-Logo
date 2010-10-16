@@ -18,10 +18,10 @@
     </head>
     <body>
         <form id="fixdf_options_form" name="fixdf_options_form" style="width:115px;">
-            <label><input type="radio" name="fixdf_options" checked="true" value="0" />Normal Logo</label>
-            <label><input type="radio" name="fixdf_options" value="1" />Phillies Logo</label>
-            <label><input type="radio" name="fixdf_options" value="2" />Giants Logo</label>
-            <label><input type="radio" name="fixdf_options" value="3" />Rangers Logo</label>
+            <label><input type="radio" name="fixdf_options" checked="true" value="dflogo" />Normal Logo</label>
+            <label><input type="radio" name="fixdf_options" value="dflogo_phils" />Phillies Logo</label>
+            <label><input type="radio" name="fixdf_options" value="dflogo_giants" />Giants Logo</label>
+            <label><input type="radio" name="fixdf_options" value="dflogo_rangers" />Rangers Logo</label>
         </form>
         
         <script>
@@ -32,7 +32,12 @@
                     altlogo = bgPage.getDFLogo();
                 
                 //Update form to display saved state
-                options[parseInt(altlogo)].checked = true;
+                for (var i=0, length = options.length; i<length; i++) {
+                    if (options[i].value === altlogo) {
+                        options[i].checked = true;
+                    }
+                }
+                
                 
                 //Handles changes to form options
                 form.addEventListener('change', function(e) {
@@ -50,7 +55,7 @@
                     var altlogo;
                     for (var i=0, length = options.length; i<length; i++) {
                         if (options[i].checked) {
-                            altlogo = i;
+                            altlogo = options[i].value;
                             break;
                         }
                     }

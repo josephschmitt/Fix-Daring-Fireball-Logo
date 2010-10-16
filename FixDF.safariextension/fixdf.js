@@ -1,18 +1,19 @@
 (function(){
-    var altlogo = safari.extension.settings ? safari.extension.settings.altlogo : Math.round(Math.random()),
-        image = altlogo ? 'dflogo_phils.png' : 'dflogo.png'
+    var image,
+        banner = document.querySelector('#Banner a img');
     
-    if (safari.extension.settings) {
-        safari.extension.settings.addEventListener('change', function(e) {
-            if (e.key == 'altlogo') {
-                altlogo = e.newValue;
-                updateLogo();
-            }
-        });
+    function doUpdateLogo(altlogo) {
+        image = altlogo + '.png';
+    
+        if (!banner) {return false;}
+        banner.setAttribute('src', safari.extension.baseURI+image);
     }
     
-    function updateLogo() {
-        document.querySelector('#Banner a img').setAttribute('src', safari.extension.baseURI+image);
-    }
-    updateLogo();
+    //Get the current value from the background page on startup
+    safari.self.tab.dispatchMessage("getDFLogo");
+    
+    //Update the logo when the form changes
+    safari.self.addEventListener("message", function(e) {
+        doUpdateLogo(e.message);
+    }, false);
 })();
